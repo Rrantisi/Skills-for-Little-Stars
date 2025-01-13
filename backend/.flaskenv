@@ -1,0 +1,1 @@
+FLASK_APP=skills_for_little_stars.py
