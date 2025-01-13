@@ -1,7 +1,7 @@
-from flask import Blueprint
+from flask import Blueprint, jsonify
 
-bp = Blueprint("main", __name__, url_prefix="")
+bp = Blueprint("main", __name__, url_prefix="/api")
 
 @bp.route("/")
 def home():
-    return "Welcome Home!"
+    return jsonify({"message": "This is the data from the backend!"})
