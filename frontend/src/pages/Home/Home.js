@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import "./Home.css";
 
-function Home() {
+function Home({ user }) {
   return (
-    <div>Home</div>
-  )
+    <div>
+      <h5 id="welcome-user">Welcome, {user.username}!</h5>
+    </div>
+  );
 }
 
-export default Home
+export default Home;

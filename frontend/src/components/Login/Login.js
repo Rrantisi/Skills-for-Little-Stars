@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./Login.css";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -26,9 +27,9 @@ const Login = () => {
 
       // If login is successful, handle the response
       if (response.status === 200) {
-        const { token } = response.data
+        const { token } = response.data;
         console.log(response.data);
-        localStorage.setItem('token', token)
+        localStorage.setItem("token", token);
         window.location.reload();
       } else {
         console.log("error response message is: ", response);
@@ -39,25 +40,33 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="form-wrapper">
       <form autoComplete="off" onSubmit={handleSubmit}>
-        <label>Username</label>
-        <input
-          type="text"
-          name="username"
-          value={credentials.username}
-          onChange={handleChange}
-          required
-        />
-        <label>Password</label>
-        <input
-          type="password"
-          name="password"
-          value={credentials.password}
-          onChange={handleChange}
-          required
-        />
-        <button type="submit">Log In</button>
+        <div className="form-element-wrapper">
+          <input
+            type="text"
+            placeholder="Enter username"
+            name="username"
+            value={credentials.username}
+            onChange={handleChange}
+            className="form-input"
+            required
+          />
+        </div>
+        <div className="form-element-wrapper">
+          <input
+            type="password"
+            placeholder="Enter password"
+            name="password"
+            value={credentials.password}
+            onChange={handleChange}
+            className="form-input"
+            required
+          />
+        </div>
+        <button type="submit" className="form-submit">
+          Log In
+        </button>
       </form>
       <p>&nbsp;{error}</p>
     </div>

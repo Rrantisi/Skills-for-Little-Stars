@@ -1,10 +1,10 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { logOut } from "../../utilities/users-service";
-import './NavBar.css';
+import logo from "../../images/logo.png"
+import "./NavBar.css";
 
-export default function NavBar({ user, setUser }) {
-
+export default function NavBar({ setUser }) {
   const handleLogout = () => {
     logOut();
     setUser(null);
@@ -12,43 +12,35 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <div>
-      <h5 id="welcome-user">Welcome, {user.username}!</h5>
-      <div>
+      <div className="navbar">
+        <div className="logo">
+          <NavLink to="/">
+            <img src={logo} alt="Home" />
+          </NavLink>
+        </div>
         <ul>
           <li>
-            <NavLink to="/">Home</NavLink>
+            <Link to="#"></Link>
           </li>
           <li>
-            <NavLink to="/learn">
-              Learn
-            </NavLink>
+            <NavLink to="/learn">Learn</NavLink>
           </li>
           <li>
-            <NavLink to="/practice">
-              Practice
-            </NavLink>
+            <NavLink to="/practice">Practice</NavLink>
           </li>
           <li>
-            <NavLink to="/quiz">
-              Quiz
-            </NavLink>
+            <NavLink to="/quiz">Quiz</NavLink>
           </li>
           <li>
-            <NavLink to="/progress">
-              Progress
-            </NavLink>
+            <NavLink to="/progress">Progress</NavLink>
           </li>
           <li>
-            <NavLink to="/parents">
-              Parents
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/" onClick={handleLogout}>
-              Log Out
-            </NavLink>
+            <NavLink to="/parents">Parents</NavLink>
           </li>
         </ul>
+        <Link to="/" onClick={handleLogout}>
+          Log Out
+        </Link>
         {/* <Footer /> */}
       </div>
     </div>

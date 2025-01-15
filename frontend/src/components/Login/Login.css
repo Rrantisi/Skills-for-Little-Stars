@@ -1,0 +1,37 @@
+.form-wrapper form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-element-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2vmin;
+    margin-bottom: 2vmin;
+}
+
+.form-input {
+    background-color: transparent;
+    outline: none;
+    border: 0.2vmin solid #2979FF;
+    width: 40vmin;
+    padding: 2vmin 4vmin;
+    border-radius: 2vmin;
+    font-size: 25px;
+}
+
+.form-submit {
+    background-color: #2979FF;
+    outline: none;
+    border: none;
+    width: 40vmin;
+    width: 40vmin;
+    padding: 2vmin 4vmin;
+    border-radius: 2vmin;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #FAF9F6;
+    font-size: 2vmin;
+    letter-spacing: 0.2vmin;
+    cursor: pointer;
+}

@@ -48,33 +48,42 @@ function Signup() {
   const disabled = credentials.password !== credentials.confirm;
 
   return (
-    <div>
+    <div className="form-wrapper">
       <form autoComplete="off" onSubmit={handleSubmit}>
-        <label>Username</label>
-        <input
-          type="text"
-          name="username"
-          value={credentials.username}
-          onChange={handleChange}
-          required
-        />
-        <label>Password</label>
-        <input
-          type="password"
-          name="password"
-          value={credentials.password}
-          onChange={handleChange}
-          required
-        />
-        <label>Confirm Password</label>
-        <input
-          type="password"
-          name="confirm"
-          value={credentials.confirm}
-          onChange={handleChange}
-          required
-        />
-        <button type="submit" disabled={disabled}>
+        <div className="form-element-wrapper">
+          <input
+            type="text"
+            placeholder="Choose a username"
+            name="username"
+            value={credentials.username}
+            onChange={handleChange}
+            className="form-input"
+            required
+          />
+        </div>
+        <div className="form-element-wrapper">
+          <input
+            type="password"
+            placeholder="Choose a password"
+            name="password"
+            value={credentials.password}
+            onChange={handleChange}
+            className="form-input"
+            required
+          />
+        </div>
+        <div className="form-element-wrapper">
+          <input
+            type="password"
+            placeholder="Confirm password"
+            name="confirm"
+            value={credentials.confirm}
+            onChange={handleChange}
+            className="form-input"
+            required
+          />
+        </div>
+        <button type="submit" disabled={disabled} className="form-submit">
           Sign Up
         </button>
       </form>

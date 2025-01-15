@@ -1,0 +1,19 @@
+.auth-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-button {
+    border: none;
+    padding: 1vmin 6vmin;
+    border-radius: 2vmin;
+    font-size: 2.2vmin;
+    width: 60vmin;
+    color: #FAF9F6;
+    background-color: #FF5252;
+    margin-top: 2vmin;
+    cursor: pointer;
+}
