@@ -61,7 +61,6 @@ const Login = () => {
 
   return (
     <div>
-      <button onClick={handleLogout}>Log Out</button>
       <form autoComplete="off" onSubmit={handleSubmit}>
         <label>Username</label>
         <input
