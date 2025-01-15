@@ -41,7 +41,7 @@ function Signup() {
         confirm: "",
       });
     } catch (err) {
-      setError("Something went wrong.");
+      setError(err.response.data.message);
     }
   };
 
