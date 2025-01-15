@@ -42,7 +42,7 @@ a {
 .logo {
     position: absolute;
     top: 0.5vmin;
-    left: 1vmin;
+    left: -1vmin;
 }
 
 .logo img {
