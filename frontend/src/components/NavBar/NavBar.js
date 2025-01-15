@@ -14,9 +14,9 @@ export default function NavBar({ setUser }) {
     <div>
       <div className="navbar">
         <div className="logo">
-          <NavLink to="/">
+          <Link to="/">
             <img src={logo} alt="Home" />
-          </NavLink>
+          </Link>
         </div>
         <ul>
           <li>
