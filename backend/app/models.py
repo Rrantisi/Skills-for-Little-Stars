@@ -1,5 +1,4 @@
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import UserMixin
 from flask_bcrypt import Bcrypt
 from enum import Enum
 
@@ -10,7 +9,7 @@ class RoleEnum(Enum):
     USER = 'user'
     ADMIN = 'admin'
 
-class User(db.Model, UserMixin):
+class User(db.Model):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
