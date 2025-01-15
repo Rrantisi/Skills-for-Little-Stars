@@ -54,12 +54,12 @@ a {
 @media screen and (max-width: 1024px) {
     .logo {
         position: absolute;
-        top: -1.2vmin;
-        left: -1vmin;
+        top: -2vmin;
+        left: -3.4vmin;
     }
 
     .logo img {
-        height: 15vmin;
+        height: 15.5vmin;
         width: auto;
         border-radius: 50%;
     }
