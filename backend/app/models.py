@@ -37,6 +37,15 @@ class Progress(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    subject_id = db.Column(db.Integer, db.ForeignKey('subjects.id'), nullable=False)
     score = db.Column(db.Integer)
     completed = db.Column(db.Boolean, default=False)
     user = db.relationship('User', backref='progress')
+    subject = db.relationship('Subject', backref='progress')
+
+class Subject(db.Model):
+    __tablename__ = 'subjects'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    description = db.Column(db.String(255))
