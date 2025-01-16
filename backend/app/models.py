@@ -38,10 +38,12 @@ class Progress(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     subject_id = db.Column(db.Integer, db.ForeignKey('subjects.id'), nullable=False)
+    level_id = db.Column(db.Integer, db.ForeignKey('levels.id'), nullable=False)
     score = db.Column(db.Integer)
     completed = db.Column(db.Boolean, default=False)
     user = db.relationship('User', backref='progress')
     subject = db.relationship('Subject', backref='progress')
+    levels = db.relationship('Level', backref='progress')
 
 class Subject(db.Model):
     __tablename__ = 'subjects'
@@ -49,3 +51,22 @@ class Subject(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     description = db.Column(db.String(255))
+    levels = db.relationship('Level', backref='subject', lazy=True)
+    content = db.relationship('Content', backref='subject', lazy=True)
+
+class Level(db.Model):
+    __tablename__ = 'levels'
+
+    id = db.Column(db.Integer, primary_key=True)
+    subject_id = db.Column(db.Integer, db.ForeignKey('subjects.id'), nullable=False)
+    name = db.Column(db.String(100), nullable=False)
+    content = db.relationship('Content', backref='level', lazy=True)
+
+class Content(db.Model):
+    __tablename__ = 'content'
+
+    id = db.Column(db.Integer, primary_key=True)
+    level_id = db.Column(db.Integer, db.ForeignKey('levels.id'), nullable=False)
+    subject_id = db.Column(db.Integer, db.ForeignKey('subjects.id'), nullable=False)
+    content_type = db.Column(db.String(100))
+    content = db.Column(db.Text)
