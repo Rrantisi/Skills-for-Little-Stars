@@ -1,9 +1,6 @@
 .active {
     font-weight: bold;
-    border: 0.1vmin solid #FAF9F6;
-    border-radius: 50%;
 }
-
 
 .navbar>ul {
     display: flex;
@@ -16,7 +13,9 @@ li {
     margin-left: 15vmin;
 }
 
-li:nth-of-type(3), li:nth-of-type(4), li:nth-of-type(5) {
+li:nth-of-type(3),
+li:nth-of-type(4),
+li:nth-of-type(5) {
     margin-left: 19vmin;
 }
 

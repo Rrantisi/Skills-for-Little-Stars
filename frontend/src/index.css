@@ -10,5 +10,6 @@ body {
   background-color: #FAF9F6;
   background-size: contain;
   height: 100vh;
+  overflow-y: hidden;
   width: 100%;
 }

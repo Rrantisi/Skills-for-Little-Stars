@@ -1,3 +1,42 @@
-h5 {
+.home-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 4fr;
+    gap: 4vmin;
+    margin: auto 4vmin;
+}
+
+.welcome-wrapper {
+    background-color: white;
+    color: #4CAF50;
+    padding: 4vmin 4vmin;
+    height: 30vmin;
+    width: 60vmin;
+    text-align: center;
+    border-radius: 1vmin;
+}
+
+.new-wrapper {
+    background-color: white;
+    color: #BA68C8;
+    padding: 4vmin;
+    grid-row: span 2;
+    border-radius: 1vmin;
+}
+
+.feelings-wrapper {
+    background-color: white;
+    color: #FF8C00;
+    border-radius: 1vmin;
+    padding: 2vmin;
+    height: 15vmin;
+    width: 60vmin;
+    text-align: center;
+}
+
+h2 {
     text-transform: capitalize;
+}
+
+h3 {
+    padding-top: 5vmin;
 }

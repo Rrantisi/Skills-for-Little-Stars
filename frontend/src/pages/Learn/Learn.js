@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
+import Subjects from "../../components/Subjects/Subjects";
+import "./Learn.css";
 
 function Learn() {
   return (
-    <div>Learn</div>
-  )
+    <div className="page-wrapper">
+      <div className="subjects-wrapper">
+        <Subjects />
+      </div>
+      <div className="content-wrapper">Learn</div>
+    </div>
+  );
 }
 
-export default Learn
+export default Learn;
