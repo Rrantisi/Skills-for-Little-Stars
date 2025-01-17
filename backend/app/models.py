@@ -41,7 +41,6 @@ class Progress(db.Model):
     level_id = db.Column(db.Integer, db.ForeignKey('levels.id'), nullable=False)
     score = db.Column(db.Integer)
     completed = db.Column(db.Boolean, default=False)
-    user = db.relationship('User', backref='progress')
     subject = db.relationship('Subject', backref='progress')
     levels = db.relationship('Level', backref='progress')
 
