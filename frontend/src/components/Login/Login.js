@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import { loginUser } from "../../store/authReducer";
@@ -13,11 +13,10 @@ const Login = () => {
     password: "",
   });
 
-  const [error, setError] = useState("");
+  const error = useSelector((state) => state.auth.error);
 
   const handleChange = (evt) => {
     setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
-    setError("");
   };
 
   const handleSubmit = async (e) => {
@@ -54,7 +53,7 @@ const Login = () => {
           Log In
         </button>
       </form>
-      <p>&nbsp;{error}</p>
+      {error && <p className="error-message">{error}</p>}
     </div>
   );
 };
