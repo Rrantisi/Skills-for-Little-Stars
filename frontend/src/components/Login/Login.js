@@ -1,8 +1,13 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
+import { loginUser } from "../../store/authReducer";
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
@@ -17,26 +22,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Send login data to backend
-    try {
-      const response = await axios.post("/api/session", {
-        username: credentials.username,
-        password: credentials.password,
-      });
-
-      // If login is successful, handle the response
-      if (response.status === 200) {
-        const { token } = response.data;
-        console.log(response.data);
-        localStorage.setItem("token", token);
-        window.location.reload();
-      } else {
-        console.log("error response message is: ", response);
-      }
-    } catch (err) {
-      setError("Invalid username or password");
-    }
+    dispatch(loginUser(credentials, navigate));
   };
 
   return (

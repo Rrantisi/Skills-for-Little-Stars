@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Home from "./pages/Home/Home";
 import Learn from "../src/pages/Learn/Learn";
 import Practice from "../src/pages/Practice/Practice";
@@ -8,17 +8,16 @@ import Progress from "../src/pages/Progress/Progress";
 import Parents from "../src/pages/Parents/Parents";
 import AuthPage from "../src/pages/AuthPage/AuthPage";
 import NavBar from "./components/NavBar/NavBar";
-import { getUser } from "./utilities/users-service";
 import "./App.css";
 
 function App() {
-  const [user, setUser] = useState(getUser());
+  const user = useSelector((state) => state.auth.user);
 
   return (
     <>
       {user ? (
         <>
-          <NavBar setUser={setUser} />
+          <NavBar />
           <div className="body">
             <Routes>
               <Route path="/" element={<Home user={user} />} />
@@ -31,7 +30,7 @@ function App() {
           </div>
         </>
       ) : (
-        <AuthPage path="/" setUser={setUser} />
+        <AuthPage path="/" />
       )}
     </>
   );

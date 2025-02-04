@@ -1,13 +1,16 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
-import { logOut } from "../../utilities/users-service";
-import logo from "../../images/logo.png"
+import { logOutUser, setUser } from "../../store/authReducer";
+import { useDispatch } from "react-redux";
+import logo from "../../images/logo.png";
 import "./NavBar.css";
 
-export default function NavBar({ setUser }) {
+export default function NavBar() {
+  const dispatch = useDispatch();
+
   const handleLogout = () => {
-    logOut();
-    setUser(null);
+    dispatch(logOutUser);
+    dispatch(setUser(null));
   };
 
   return (
@@ -41,7 +44,6 @@ export default function NavBar({ setUser }) {
         <Link to="/" onClick={handleLogout}>
           Log Out
         </Link>
-        {/* <Footer /> */}
       </div>
     </div>
   );
