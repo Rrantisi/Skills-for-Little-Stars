@@ -1,48 +1,27 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { signUpUser } from "../../store/authReducer";
 
 function Signup() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
     confirm: "",
   });
 
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
+  const error = useSelector((state) => state.auth.error);
 
   const handleChange = (evt) => {
     setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
-    setError("");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Check if password and confirm password match
-    if (credentials.password !== credentials.confirm) {
-      setError("Passwords do not match");
-      return;
-    }
-
-    // Send signup data to backend
-    try {
-      const response = await axios.post("/api/session/signup", {
-        username: credentials.username,
-        password: credentials.password,
-      });
-
-      // If signup is successful, handle the response
-      setSuccess("Account created successfully. You can now log in.");
-      console.log(response);
-      setCredentials({
-        username: "",
-        password: "",
-        confirm: "",
-      });
-    } catch (err) {
-      setError(err.response.data.message);
-    }
+    dispatch(signUpUser(credentials, navigate));
   };
 
   const disabled = credentials.password !== credentials.confirm;
@@ -88,7 +67,6 @@ function Signup() {
         </button>
       </form>
       {error && <p>{error}</p>}
-      {success && <p>{success}</p>}
     </div>
   );
 }

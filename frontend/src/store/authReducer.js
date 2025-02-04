@@ -71,7 +71,7 @@ export const logOutUser = () => (dispatch) => {
 };
 
 // signUpUser function
-export const signUpUser = (credentials) => async (dispatch) => {
+export const signUpUser = (credentials, navigate) => async (dispatch) => {
   dispatch(setLoading(true));
   try {
     const response = await axios.post("/api/session/signup", credentials);
@@ -80,6 +80,7 @@ export const signUpUser = (credentials) => async (dispatch) => {
     localStorage.setItem("token", token);
 
     dispatch(setUser(user));
+    navigate("/");
   } catch (err) {
     dispatch(setError(err.response?.data?.message));
   } finally {
