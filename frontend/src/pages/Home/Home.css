@@ -28,9 +28,10 @@
     color: #FF8C00;
     border-radius: 1vmin;
     padding: 2vmin;
-    height: 15vmin;
+    height: 20vmin;
     width: 60vmin;
     text-align: center;
+
 }
 
 h2 {
@@ -39,4 +40,12 @@ h2 {
 
 h3 {
     padding-top: 5vmin;
+}
+
+.faces {
+    display: flex;
+    flex-direction: row;
+    padding-top: 2vmin;
+    padding-bottom: 2vmin;
+    cursor: pointer;
 }

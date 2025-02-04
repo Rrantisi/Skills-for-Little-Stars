@@ -1,12 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Home.css";
 
 function Home({ user }) {
+  const [emoji, setEmoji] = useState("😄");
+
+  const weekday = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  const d = new Date();
+  let day = weekday[d.getDay()];
+  let year = d.getFullYear();
+
+  const handleEmojiClick = (e) => {
+    setEmoji(e.target.textContent);
+
+    console.log(emoji);
+  };
+
   return (
     <div className="home-wrapper">
       <div className="welcome-wrapper">
         <h2 id="welcome-user">Welcome, {user.username}!</h2>
-        <h3>Today is Wednesday</h3>
+        <h3>🌟 We are in the amazing year {year}! 🎊</h3>
+        <h3>📅 Today is a wonderful {day}! 🥳</h3>
       </div>
       <div className="new-wrapper">
         <h1>What's New</h1>
@@ -20,6 +43,13 @@ function Home({ user }) {
       </div>
       <div className="feelings-wrapper">
         <h2>How are you feeling today?</h2>
+        <div className="faces" onClick={handleEmojiClick}>
+          <h1>😄</h1>
+          <h1>😛</h1>
+          <h1>🙁</h1>
+          <h1>😠</h1>
+        </div>
+        <h2>I'm feeling {emoji}</h2>
       </div>
     </div>
   );
