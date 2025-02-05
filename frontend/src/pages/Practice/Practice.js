@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import Subjects from "../../components/Subjects/Subjects";
 
 function Practice() {
+  const [selectedSubject, setSelectedSubject] = useState("");
+  const [selectedLevel, setSelectedLevel] = useState("");
+
   return (
     <div className="page-wrapper">
       <div className="subjects-wrapper">
-        <Subjects />
+        <Subjects
+          setSelectedSubject={setSelectedSubject}
+          setSelectedLevel={setSelectedLevel}
+        />
       </div>
-      <div className="content-wrapper">Practice</div>
+      <div className="content-wrapper">{selectedSubject.name}</div>
     </div>
   );
 }
