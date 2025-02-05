@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchSubjects } from "../../store/subjectReducer";
 
 function Subjects() {
+  const dispatch = useDispatch();
+  const subjects = useSelector((state) => state.subjects.subjects);
+
+  useEffect(() => {
+      dispatch(fetchSubjects());
+    },
+    [dispatch]);
+
   return (
     <>
-      <div>Math</div>
-      <div>Listen and Read</div>
-      <div>Shapes and Colors</div>
-      <div>Space</div>
+      {subjects?.map((subject) => (
+        <div key={subject.id}>{subject.name}</div>
+      ))}
     </>
   );
 }
