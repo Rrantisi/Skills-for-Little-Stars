@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Subjects from "../../components/Subjects/Subjects";
+import Levels from "../../components/Levels/Levels";
 
 function Quiz() {
   const [selectedSubject, setSelectedSubject] = useState("");
@@ -13,7 +14,12 @@ function Quiz() {
           setSelectedLevel={setSelectedLevel}
         />
       </div>
-      <div className="content-wrapper">{selectedSubject.name}</div>
+      <div className="content-wrapper">
+        <div className="levels-wrapper">
+          <Levels subjectId={selectedSubject?.id} />
+        </div>
+        {selectedSubject.name}
+      </div>
     </div>
   );
 }
