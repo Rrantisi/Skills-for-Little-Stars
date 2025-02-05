@@ -12,7 +12,7 @@ function AuthPage() {
 
   return (
     <div className="auth-page">
-      {isSignedUp ? <SignUp /> : <LogIn />}
+      {isSignedUp ? <LogIn /> : <SignUp />}
       <div>
         <button onClick={toggleForm} className="auth-button">
           {isSignedUp
