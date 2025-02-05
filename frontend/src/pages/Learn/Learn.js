@@ -21,7 +21,10 @@ function Learn() {
       </div>
       <div className="content-wrapper">
         <div className="levels-wrapper">
-          <Levels subjectId={selectedSubject?.id} />
+          <Levels
+            subjectId={selectedSubject?.id}
+            setSelectedLevel={setSelectedLevel}
+          />
         </div>
         {selectedSubject?.name}
         <Content
