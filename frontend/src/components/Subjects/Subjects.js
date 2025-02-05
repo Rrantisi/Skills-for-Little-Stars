@@ -13,7 +13,7 @@ function Subjects({ setSelectedSubject, setSelectedLevel }) {
 
   const handleSubjectClick = (subject) => {
     setSelectedSubject(subject);
-    setSelectedLevel("");
+    setSelectedLevel(2);
   }
 
   return (

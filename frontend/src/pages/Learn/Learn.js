@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import Levels from "../../components/Levels/Levels";
 import Subjects from "../../components/Subjects/Subjects";
+import Content from "../../components/Content/Content";
 import "./Learn.css";
 
 function Learn() {
-  const [selectedSubject, setSelectedSubject] = useState(null);
-  const [selectedLevel, setSelectedLevel] = useState(null);
+  const [selectedSubject, setSelectedSubject] = useState({
+    id: 1,
+    name: "Math",
+  });
+  const [selectedLevel, setSelectedLevel] = useState(2);
 
   return (
     <div className="page-wrapper">
@@ -20,6 +24,10 @@ function Learn() {
           <Levels subjectId={selectedSubject?.id} />
         </div>
         {selectedSubject?.name}
+        <Content
+          subjectId={selectedSubject?.id}
+          selectedLevel={selectedLevel}
+        />
       </div>
     </div>
   );

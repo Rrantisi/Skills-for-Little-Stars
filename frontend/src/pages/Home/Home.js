@@ -20,8 +20,6 @@ function Home({ user }) {
 
   const handleEmojiClick = (e) => {
     setEmoji(e.target.textContent);
-
-    console.log(emoji);
   };
 
   return (

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import Subjects from "../../components/Subjects/Subjects";
 import Levels from "../../components/Levels/Levels";
+import Content from "../../components/Content/Content";
 
 function Quiz() {
-  const [selectedSubject, setSelectedSubject] = useState("");
-  const [selectedLevel, setSelectedLevel] = useState("");
+  const [selectedSubject, setSelectedSubject] = useState({id: 1, name: "Math"});
+  const [selectedLevel, setSelectedLevel] = useState(2);
 
   return (
     <div className="page-wrapper">
@@ -19,6 +20,10 @@ function Quiz() {
           <Levels subjectId={selectedSubject?.id} />
         </div>
         {selectedSubject.name}
+        <Content
+          subjectId={selectedSubject?.id}
+          selectedLevel={selectedLevel}
+        />
       </div>
     </div>
   );
