@@ -53,7 +53,6 @@ export const loginUser = (credentials, navigate) => async (dispatch) => {
     const { token, user } = response.data;
     localStorage.setItem("token", token);
     localStorage.setItem("user", JSON.stringify(user));
-    // const user = JSON.parse(atob(token.split(".")[1])).user;
     dispatch(setUser(user));
     navigate("/");
   } catch (err) {

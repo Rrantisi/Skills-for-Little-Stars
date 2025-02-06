@@ -9,7 +9,7 @@ export default function NavBar() {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
-    dispatch(logOutUser);
+    dispatch(logOutUser());
     dispatch(setUser(null));
   };
 
