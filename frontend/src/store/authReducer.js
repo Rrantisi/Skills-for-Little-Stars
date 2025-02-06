@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Set up the initial state
 const initialState = {
-  user: null,
+  user: JSON.parse(localStorage.getItem("user")) || null,
   error: null,
   loading: false,
 };
@@ -15,6 +15,7 @@ export const LOGOUT = "LOGOUT";
 
 // Create synchronous actions
 export const setUser = (user) => {
+  localStorage.setItem("user", JSON.stringify(user));
   return {
     type: SET_USER,
     user,
@@ -47,14 +48,12 @@ export const logOut = () => {
 export const loginUser = (credentials, navigate) => async (dispatch) => {
   dispatch(setLoading(true));
   try {
-    const response = await axios.post("/api/session", {
-      username: credentials.username,
-      password: credentials.password,
-    });
+    const response = await axios.post("/api/session", credentials);
 
-    const { token } = response.data;
+    const { token, user } = response.data;
     localStorage.setItem("token", token);
-    const user = JSON.parse(atob(token.split(".")[1])).user;
+    localStorage.setItem("user", JSON.stringify(user));
+    // const user = JSON.parse(atob(token.split(".")[1])).user;
     dispatch(setUser(user));
     navigate("/");
   } catch (err) {
@@ -67,7 +66,7 @@ export const loginUser = (credentials, navigate) => async (dispatch) => {
 // logOutUser function
 export const logOutUser = () => (dispatch) => {
   localStorage.removeItem("token");
-  dispatch(logOut);
+  dispatch(logOut());
 };
 
 // signUpUser function

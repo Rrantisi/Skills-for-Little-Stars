@@ -1,5 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setUser } from "./store/authReducer";
 import Home from "./pages/Home/Home";
 import Learn from "../src/pages/Learn/Learn";
 import Practice from "../src/pages/Practice/Practice";
@@ -11,7 +13,16 @@ import NavBar from "./components/NavBar/NavBar";
 import "./App.css";
 
 function App() {
+  const dispatch = useDispatch();
+
   const user = useSelector((state) => state.auth.user);
+
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (storedUser && !user) {
+      dispatch(setUser(storedUser));
+    }
+  }, [dispatch, user]);
 
   return (
     <>
