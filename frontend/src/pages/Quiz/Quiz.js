@@ -22,7 +22,6 @@ function Quiz() {
             setSelectedLevel={setSelectedLevel}
           />
         </div>
-        {selectedSubject.name}
         <Content
           subjectId={selectedSubject?.id}
           selectedLevel={selectedLevel}
