@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from app.models import Subject
+from app.models import Subject, Progress
 from sqlalchemy.orm import joinedload
 
 bp = Blueprint("main", __name__, url_prefix="/")
@@ -40,3 +40,24 @@ def get_subject(subject_id):
             "content": [{"id": content.id, "content": content.content} for content in subject.content]
         }
     ])
+
+@bp.route('/api/progress/<int:user_id>', methods=['GET'])
+def get_progress(user_id):
+    progress = Progress.query.options(
+        joinedload(Progress.level),
+        joinedload(Progress.subject)
+    ).filter_by(user_id = user_id).all()
+
+    if not progress:
+        return jsonify({"error": "User progress not found"}), 404
+
+    return jsonify([
+            {
+                "progress_id": p.id,
+                "score": p.score,
+                "completed": p.completed,
+                "level": {"id": p.level.id, "name": p.level.name},
+                "subject": {"id": p.subject.id, "name": p.subject.name}
+            }
+            for p in progress
+        ])

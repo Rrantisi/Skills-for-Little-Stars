@@ -1,11 +1,13 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { thunk } from 'redux-thunk';
 import authReducer from './authReducer';
+import progressReducer from './progressReducer';
 import subjectReducer from './subjectReducer';
 
 const rootReducer = combineReducers({
     auth: authReducer,
-    subjects: subjectReducer
+    subjects: subjectReducer,
+    progress: progressReducer
 });
 
 let enhancer;

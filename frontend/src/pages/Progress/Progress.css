@@ -1,0 +1,47 @@
+.progress-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 6vmin;
+}
+
+.progress-result-wrapper {
+    background-color: #f3f3f3;
+    border: 0.1vmin solid #BA68C8;
+    padding: 5vmin;
+    border-radius: 5vmin;
+}
+
+.progress-result-wrapper > * {
+    padding: 1vmin;
+    text-align: center;
+}
+
+.progress-result-wrapper span {
+    font-size: 2.2vmin;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.4vmin;
+    color: black;
+}
+
+#subject-name {
+    color: #BA68C8;
+    font-size: 3vmin;
+    font-weight: 600;
+    padding-bottom: 4vmin;
+}
+
+#level-name {
+    color: #4CAF50;
+    font-size: 2.2vmin;
+}
+
+#completed {
+    color: #FF5252;
+    font-size: 2.2vmin;
+}
+
+#score {
+    color: #2979FF;
+    font-size: 2.2vmin;
+}
