@@ -32,6 +32,17 @@ class User(db.Model):
     def check_password(self, password):
         return bcrypt.check_password_hash(self.hashed_password, password)
 
+    # Initialize progress for new users
+    def add_progress(self):
+            subjects = Subject.query.all()  # or fetch specific subjects
+            for subject in subjects:
+                for level in subject.levels:
+                    # Add an initial progress record for each subject for the user
+                    progress = Progress(user_id=self.id, subject_id=subject.id, level_id=level.id, score=0, completed=False)
+                    db.session.add(progress)
+            db.session.commit()
+
+
 class Progress(db.Model):
     __tablename__ = 'progress'
 
@@ -42,7 +53,7 @@ class Progress(db.Model):
     score = db.Column(db.Integer)
     completed = db.Column(db.Boolean, default=False)
     subject = db.relationship('Subject', backref='progress')
-    levels = db.relationship('Level', backref='progress')
+    level = db.relationship('Level', backref='progress')
 
 class Subject(db.Model):
     __tablename__ = 'subjects'
