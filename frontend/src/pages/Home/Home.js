@@ -44,7 +44,7 @@ function Home({ user }) {
         </h3>
       </div>
       <div className="new-wrapper">
-        <h1>What's New</h1>
+        <h1>What's New?</h1>
         <div className="new-stuff-wrapper">
           <div>New Content added for Math Subject!</div>
           <div>New Content added for Listen and Read!</div>
