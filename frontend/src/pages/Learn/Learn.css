@@ -68,3 +68,11 @@
 .levels-wrapper > div:hover, .subjects-wrapper > div:hover {
     cursor: pointer;
 }
+
+.active-level {
+    font-weight: 600;
+}
+
+.active-subject {
+    transform: scale(0.9);
+}

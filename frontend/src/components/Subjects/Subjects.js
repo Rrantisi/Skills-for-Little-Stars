@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSubjects } from "../../store/subjectReducer";
 
-function Subjects({ setSelectedSubject, setSelectedLevel }) {
+function Subjects({ selectedSubject, setSelectedSubject, setSelectedLevel }) {
   const dispatch = useDispatch();
   const subjects = useSelector((state) => state.subjects.subjects);
 
@@ -19,7 +19,13 @@ function Subjects({ setSelectedSubject, setSelectedLevel }) {
   return (
     <>
       {subjects?.map((subject) => (
-        <div key={subject.id} onClick={() => handleSubjectClick(subject)}>{subject.name}</div>
+        <div
+          key={subject.id}
+          onClick={() => handleSubjectClick(subject)}
+          className={selectedSubject.id === subject.id ? "active-subject" : ""}
+        >
+          {subject.name}
+        </div>
       ))}
     </>
   );

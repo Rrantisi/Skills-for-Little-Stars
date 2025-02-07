@@ -15,6 +15,7 @@ function Learn() {
     <div className="page-wrapper">
       <div className="subjects-wrapper">
         <Subjects
+          selectedSubject={selectedSubject}
           setSelectedSubject={setSelectedSubject}
           setSelectedLevel={setSelectedLevel}
         />
@@ -23,6 +24,7 @@ function Learn() {
         <div className="levels-wrapper">
           <Levels
             subjectId={selectedSubject?.id}
+            selectedLevel={selectedLevel}
             setSelectedLevel={setSelectedLevel}
           />
         </div>
