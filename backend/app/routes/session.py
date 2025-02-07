@@ -69,6 +69,10 @@ def signup():
     db.session.add(new_user)
     db.session.commit()
 
+    # Automatically add progress for the new user
+    new_user.add_progress()
+    db.session.commit()
+
     # Return a success response
     return jsonify({
         "message": "User registered successfully",
