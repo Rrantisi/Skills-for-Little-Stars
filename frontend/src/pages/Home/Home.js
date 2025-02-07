@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Home.css";
 
 function Home({ user }) {
-  const [emoji, setEmoji] = useState("😄");
+  const [emoji, setEmoji] = useState(localStorage.getItem('feeling') || "😄");
 
   const weekday = [
     "Sunday",
@@ -19,7 +19,9 @@ function Home({ user }) {
   let year = d.getFullYear();
 
   const handleEmojiClick = (e) => {
-    setEmoji(e.target.textContent);
+    const newEmoji = e.target.textContent;
+    setEmoji(newEmoji)
+    localStorage.setItem('feeling', newEmoji)
   };
 
   return (
