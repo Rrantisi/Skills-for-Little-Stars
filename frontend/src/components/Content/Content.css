@@ -2,4 +2,55 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 1vmin;
+    padding-top: 2vmin;
+}
+
+.content-container > h2 {
+    color: #FF5252;
+    font-size: 4.6vmin;
+}
+
+.content-container > h3 {
+    color: #4CAF50;
+    font-size: 4.4vmin;
+}
+
+.detail-container {
+    display: flex;
+    flex-direction: row;
+    gap: 4vmin;
+    padding: 6vmin 8vmin;
+    background-color: #2979FF;
+    border-radius: 2vmin;
+}
+
+.content-container p {
+    color: black;
+    font-size: 6vmin;
+}
+
+.carousel-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5vmin;
+    gap: 2vmin;
+    width: 100%;
+}
+
+.carousel-btn {
+    color: white;
+    background-color: #f3f3f3;
+    font-size: 5vmin;
+    padding: 1.5vmin 2.4vmin;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+.carousel-btn:hover {
+    color: #2979FF;
+    transition: 1000ms;
 }
