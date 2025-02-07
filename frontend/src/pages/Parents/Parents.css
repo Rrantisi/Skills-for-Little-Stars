@@ -1,0 +1,37 @@
+.parents-profile-wrapper {
+    background-color: #f3f3f3;
+    padding: 5vmin;
+    border-radius: 5vmin;
+    border: 0.3vmin double #4CAF50;
+    height: 60vmin;
+    width: 50vmin;
+}
+
+.username {
+    text-transform: capitalize;
+}
+
+.parents-profile-wrapper > h3 {
+    font-size: 3vmin;
+    padding-bottom: 2vmin;
+    border-bottom: 0.1vmin solid #4CAF50;
+    color: #4CAF50;
+}
+
+h4 > span {
+    font-size: 2.2vmin;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.4vmin;
+    color: black;
+}
+
+.parents-profile-wrapper > h4 {
+    padding-top: 5vmin;
+    font-size: 2.8vmin;
+    color: #BA68C8;
+}
+
+.settings-wrapper > *{
+    padding-bottom: 1vmin;
+}
