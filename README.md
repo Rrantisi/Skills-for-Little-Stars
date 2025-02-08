@@ -2,6 +2,7 @@
 <br />
 <div align="center">
     <img src="frontend/src/images/logo.png" alt="SkillsForLittleStars" width="80" height="80">
+    <p>SkillsForLittleStars</p>
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -13,7 +14,7 @@
     <li><a href="#about-the-project">About The Project</a>
     <li><a href="#features">Features</a></li>
     <li><a href="#built-with">Built With</a></li>
-    <li><a href="#installation-&-setup">Installation & Setup</a></li>
+    <li><a href="#installation-and-setup">Installation & Setup</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#icebox-items">Ice Box Items</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -67,7 +68,7 @@ Welcome to Skills for Little Stars! 🎉 This interactive and fun educational pl
 
 - Styling: CSS
 
-## Installation & Setup
+## Installation and Setup
 
 #### Prerequisites
 
