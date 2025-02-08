@@ -1,8 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
-<div align="center">
+<div align="center" id="skillsforlittlestars">
     <img src="frontend/src/images/logo.png" alt="SkillsForLittleStars" width="80" height="80">
-    <p>SkillsForLittleStars</p>
 </div>
 
 <!-- TABLE OF CONTENTS -->
